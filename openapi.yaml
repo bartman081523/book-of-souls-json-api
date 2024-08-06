@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Book of Souls API
+  description: API for calculating Equidistant Letter Sequences (ELS) from the Torah.
+  version: 1.0.0
+  license:
+    name: MIT
+servers:
+  - url: https://book-of-souls-json-api.onrender.com
+paths:
+  /els_search:
+    post:
+      summary: Calculates ELS based on a date and name/topic.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date:
+                  type: string
+                  description: Date in YYYY-MM-DD format.
+                  example: "2024-08-07"
+                name_or_topic:
+                  type: string
+                  description: Name or topic for Gematria calculation.
+                  example: "Hans Albert Einstein"
+      responses:
+        '200':
+          description: ELS search results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Configuration:
+                    type: object
+                    properties:
+                      Start Book:
+                        type: integer
+                      End Book:
+                        type: integer
+                      Step:
+                        type: integer
+                      Rounds:
+                        type: string
+                      Length:
+                        type: integer
+                      Target Language:
+                        type: string
+                      Strip Spaces:
+                        type: boolean
+                      Strip Text in Braces:
+                        type: boolean
+                      Strip Diacritics:
+                        type: boolean
+                      Search Phrase:
+                        type: string
+                  Results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        book:
+                          type: string
+                        chapter:
+                          type: integer
+                        verse:
+                          type: integer
+                        text:
+                          type: string
+                        round:
+                          type: integer
+                        sequence:
+                          type: string
+        '400':
+          description: Invalid date format.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
