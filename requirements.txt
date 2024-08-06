@@ -1,0 +1,6 @@
+flask==3.0.3
+deep_translator==1.9.0
+inflect==7.2.1
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.25.1
+gunicorn
