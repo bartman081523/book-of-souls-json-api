@@ -39,6 +39,7 @@ def els_search_api():
 
     results = perform_els_search(start, end, step, rounds, length, strip_spaces, strip_in_braces, strip_diacritics_chk)
     search_phrase = f"{date_words} {name_or_topic}"
+    logger.debug(f"search phrase: {search_phrase}")
     json_output = generate_json_dump(start, end, step, rounds, length, strip_spaces, strip_in_braces, strip_diacritics_chk, search_phrase, results)
 
     return jsonify(json.loads(json_output))
@@ -47,6 +48,7 @@ def els_search_api():
 def calculate_gematria_sum(text, date_words):
     combined_input = f"{text} {date_words}"
     sum_value = calculate_gematria(strip_diacritics(combined_input))
+    logger.debug(f"journal gematria sum: {sum_value}")
     return sum_value
 
 def perform_els_search(start, end, step, rounds, length, strip_spaces, strip_in_braces, strip_diacritics_chk):
