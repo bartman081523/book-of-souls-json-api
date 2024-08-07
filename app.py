@@ -7,7 +7,7 @@ from flask import Flask, request, jsonify
 from datetime import datetime
 
 # Set logging level to WARNING
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
