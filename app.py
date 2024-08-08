@@ -53,7 +53,7 @@ def calculate_gematria_sum(text, date_words):
     return sum_value
 
 def perform_els_search(start, end, step, rounds, length, strip_spaces, strip_in_braces, strip_diacritics_chk):
-    results = torah.process_json_files(start, end, step, rounds, length, 'en', strip_spaces, strip_in_braces, strip_diacritics)
+    results = torah.process_json_files(start, end, step, rounds, length, 'en', strip_spaces, strip_in_braces, strip_diacritics_chk)
     return results
 
 def generate_json_dump(start, end, step, rounds, length, strip_spaces, strip_in_braces, strip_diacritics_chk, search_phrase, results):
