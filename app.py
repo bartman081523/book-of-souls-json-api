@@ -49,7 +49,7 @@ def calculate_gematria_sum(text, date_words):
     combined_input = f"{text} {date_words}"
     sum_value = calculate_gematria(strip_diacritics(combined_input))
     logger.info(f"journal phrase: {combined_input}")
-    logger.infp(f"journal gematria sum: {sum_value}")
+    logger.info(f"journal gematria sum: {sum_value}")
     return sum_value
 
 def perform_els_search(start, end, step, rounds, length, strip_spaces, strip_in_braces, strip_diacritics_chk):
